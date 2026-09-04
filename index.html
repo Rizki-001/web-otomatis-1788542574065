@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokoKita - Toko Online Terpercaya</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-indigo-600 flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping"></i> TokoKita
+                    </a>
+                </div>
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="index.html" class="text-indigo-600">Beranda</a>
+                    <a href="products.html" class="hover:text-indigo-600 transition">Produk</a>
+                    <a href="contact.html" class="hover:text-indigo-600 transition">Kontak</a>
+                </div>
+                <!-- Cart Icon -->
+                <div class="flex items-center space-x-4">
+                    <a href="cart.html" class="relative p-2 text-gray-700 hover:text-indigo-600">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="cart-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block text-indigo-600 font-semibold">Beranda</a>
+            <a href="products.html" class="block text-gray-600 hover:text-indigo-600">Produk</a>
+            <a href="contact.html" class="block text-gray-600 hover:text-indigo-600">Kontak</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="bg-indigo-900 text-white py-20 px-4 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Gaya Modern, Harga Bersahabat</h1>
+            <p class="text-indigo-200 text-lg md:text-xl mb-8">Temukan produk impianmu dengan penawaran terbaik minggu ini.</p>
+            <a href="products.html" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transition duration-300 inline-block">Belanja Sekarang</a>
+        </div>
+    </header>
+
+    <!-- FEATURES SECTION -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="p-6 border rounded-xl shadow-sm">
+                <i class="fa-solid fa-truck-fast text-4xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Gratis Ongkir</h3>
+                <p class="text-gray-600 text-sm">Berlaku untuk seluruh wilayah Indonesia tanpa minimal belanja.</p>
+            </div>
+            <div class="p-6 border rounded-xl shadow-sm">
+                <i class="fa-solid fa-shield-halved text-4xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Pembayaran Aman</h3>
+                <p class="text-gray-600 text-sm">Berbagai metode pembayaran aman dan terverifikasi.</p>
+            </div>
+            <div class="p-6 border rounded-xl shadow-sm">
+                <i class="fa-solid fa-headset text-4xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Dukungan 24/7</h3>
+                <p class="text-gray-600 text-sm">Tim customer service siap membantu Anda kapan saja.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="py-12 max-w-7xl mx-auto px-4 flex-grow">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Produk Unggulan</h2>
+            <a href="products.html" class="text-indigo-600 font-semibold hover:underline">Lihat Semua &rarr;</a>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Product Card 1 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Headphone" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <span class="text-xs text-indigo-600 font-bold uppercase tracking-wider">Elektronik</span>
+                    <h3 class="font-bold text-lg text-gray-800 mt-1">Headphone Wireless Premium</h3>
+                    <p class="text-gray-600 text-sm mt-1">Rp 750.000</p>
+                    <button onclick="addToCart(1, 'Headphone Wireless Premium', 750000, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500')" class="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg font-medium transition text-sm">
+                        + Keranjang
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Jam Tangan" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <span class="text-xs text-indigo-600 font-bold uppercase tracking-wider">Aksesoris</span>
+                    <h3 class="font-bold text-lg text-gray-800 mt-1">Smartwatch Minimalis</h3>
+                    <p class="text-gray-600 text-sm mt-1">Rp 1.200.000</p>
+                    <button onclick="addToCart(2, 'Smartwatch Minimalis', 1200000, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500')" class="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg font-medium transition text-sm">
+                        + Keranjang
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Sepatu" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <span class="text-xs text-indigo-600 font-bold uppercase tracking-wider">Pakaian</span>
+                    <h3 class="font-bold text-lg text-gray-800 mt-1">Sepatu Sport Merah</h3>
+                    <p class="text-gray-600 text-sm mt-1">Rp 850.000</p>
+                    <button onclick="addToCart(3, 'Sepatu Sport Merah', 850000, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500')" class="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg font-medium transition text-sm">
+                        + Keranjang
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500" alt="Kacamata" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <span class="text-xs text-indigo-600 font-bold uppercase tracking-wider">Aksesoris</span>
+                    <h3 class="font-bold text-lg text-gray-800 mt-1">Kacamata Hitam Sporty</h3>
+                    <p class="text-gray-600 text-sm mt-1">Rp 250.000</p>
+                    <button onclick="addToCart(4, 'Kacamata Hitam Sporty', 250000, 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500')" class="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg font-medium transition text-sm">
+                        + Keranjang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+            <div>
+                <h3 class="text-white text-lg font-bold mb-3">TokoKita</h3>
+                <p class="text-sm text-gray-400">Pusat belanja online terpercaya dengan kualitas produk unggulan dan layanan pelanggan terbaik.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-3">Navigasi</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-white">Beranda</a></li>
+                    <li><a href="products.html" class="hover:text-white">Katalog Produk</a></li>
+                    <li><a href="cart.html" class="hover:text-white">Keranjang Belanja</a></li>
+                    <li><a href="contact.html" class="hover:text-white">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-3">Ikuti Kami</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 text-center pt-4 text-xs text-gray-500">
+            &copy; 2023 TokoKita. Hak Cipta Dilindungi Undang-Undang.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
